@@ -1,0 +1,28 @@
+{
+  "name": "arewegood-sdk-js",
+  "version": "0.0.1",
+  "description": "the sdk for js (if you're consuming this, probably node) for arewegood",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hashtag-include/arewegood-sdk-js.git"
+  },
+  "keywords": [
+    "arewegood"
+  ],
+  "author": "Ben Greenier",
+  "license": "NONE",
+  "bugs": {
+    "url": "https://github.com/hashtag-include/arewegood-sdk-js/issues"
+  },
+  "homepage": "https://github.com/hashtag-include/arewegood-sdk-js",
+  "dependencies": {
+    "faye-websocket": "^0.9.2",
+    "ping": "^0.1.9",
+    "polo": "^0.7.1",
+    "request": "^2.51.0"
+  }
+}
