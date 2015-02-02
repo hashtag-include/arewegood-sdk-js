@@ -3,6 +3,9 @@ var sdk = require('../index')("nonsense");
 var mock = require('../mocks/mock-service');
 var assert = require('assert');
 
+sdk.log(console.log);
+mock.log(console.log);
+
 describe("sdk", function() {
 	before(function(done) {
 		mock.start(function(){ done(); });

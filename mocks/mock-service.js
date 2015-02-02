@@ -19,13 +19,13 @@ module.exports = (function(){
             var p = JSON.parse(event.data);
 
             //simulate auth
-            if (p.data.id === "api-token-authenticate") {
-              _logger("[mock] auth: "+p.data.token);
-              ws.send(JSON.stringify({data:{id:"api-token-authenticate-response", status:"OK"}}));
+            if (p.type === "api_token") {
+              _logger("[mock] auth: "+p.data);
+              ws.send(JSON.stringify({type:"api_token-response", status:"OK"}));
             }
 
             // if it's not an auth call, fire nextDataCb with it
-            if (p.data.id != "api-token-authenticate" && nextDataCb != null) {
+            if (p.data.id != "api_token" && nextDataCb != null) {
               nextDataCb(p.data);
               nextDataCb = null;
             }
