@@ -1,5 +1,7 @@
-var sdk = require('../index')("nonsense")
-sdk.log(console.log)
+var sdk = require('../index')("1167891")
+sdk.on('error', function(e) {
+  console.log(e);
+});
 
 sdk.trace("started")
 sdk.info("hi mom")
