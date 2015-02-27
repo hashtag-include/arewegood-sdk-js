@@ -1,6 +1,19 @@
 var ExceptionLogger = require('./lib/exception-logger'),
-    conman = require('./lib/con-man');
+    conman = require('./lib/con-man'),
+    logger = new ExceptionLogger(),
+    uncaughtHandler = require('./lib/uncaught-handler')({
+      //bind these args to the uncaughtHandler instance
+      logger: logger,
+      timeout: 15000,
+      console: console,
+      exitCode: 1,
+      callOthers: true
+    });
 
+// set the uncaughtHandler as a property of logger
+// this is so that we canreturn an object
+// that is a combination of the logger and the uncaughtHandler
+logger.uncaughtHandler = uncaughtHandler;
 
 module.exports = function(apiKey) {
   // we need to configure a new conman, to use our apiKey, and set it as the default instance
@@ -8,8 +21,7 @@ module.exports = function(apiKey) {
   conman.init({setDefault: true, apiKey: apiKey});
 
   conman.on('open', function(){ console.log("open");});
-
-  // for now, let's return the same interface using the new abstracted networking stuff
-  // this way, our existing tests should still work
-	return new ExceptionLogger();
+ 
+  // return our logger-ish object
+  return logger;
 };
