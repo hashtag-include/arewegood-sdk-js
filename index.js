@@ -21,7 +21,7 @@ module.exports = function(apiKey) {
   
   // we need to configure a new conman, to use our apiKey, and set it as the default instance
   // so that all our calls to conman.send() use the correctly configured instance
-  conman.init({setDefault: true, apiKey: apiKey});
+  conman.init({setDefault: true, apiKey: apiKey, useProxy: false});
 
   conman.on('open', function(){ console.log("open");});
  
