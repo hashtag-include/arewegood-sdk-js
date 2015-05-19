@@ -30,7 +30,7 @@
   "config": {
       "blanket": {
         "pattern": ["index.js","lib","lib/connections"],
-        "data-cover-never": ["node_modules", "tests"]
+        "data-cover-never": ["node_modules", "test"]
       }
   },
   "repository": {
